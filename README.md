@@ -200,17 +200,6 @@ All 3 failures and the summary line survived intact — only the 217 noisy
 | `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (210MB → 9MB, relevant folders only) |
 | `references/claude-code-best-practice/` | On demand | Pruned snapshot of `shanraisshan/claude-code-best-practice` |
 
-Both vendored snapshots keep their original `LICENSE` file — they're
-third-party code under their own upstream licenses (both MIT), separate from
-the rest of this repo. (`assets/` isn't in that table on purpose — it's the
-logo for this README, not part of what gets copied into a project.)
-
-> [!NOTE]
-> **"On demand" means:** don't read the directory, read the one file you
-> actually need, only when a task calls for it (writing a hook, tuning
-> caching, designing an agent pattern). Loading any of it wholesale defeats
-> the point of the whole repo.
-
 </details>
 
 <details>
@@ -218,11 +207,8 @@ logo for this README, not part of what gets copied into a project.)
 
 <br>
 
-- **Permissions**: small, honest allowlist in `.claude/settings.json`, grown with the `fewer-permission-prompts` skill as real prompts show up. Don't edit it mid-session — it breaks the prompt cache.
-- **`pocket-init` vs the built-in `/init`**: don't run Claude Code's native `/init` on a project with pocket-claude already in it — it writes a generic CLAUDE.md from scratch and doesn't know pocket-claude's structure exists, so it can overwrite or duplicate the fixed sections. Use `pocket-init` instead; it only ever touches the three placeholders. Run the built-in `/doctor` occasionally afterward — it reviews an existing CLAUDE.md and proposes cuts for anything Claude can already derive from the code.
-- **`.claude-example/` inside `references/`**: the vendored repos ship their own `.claude/` configs, renamed so Claude Code can never pick them up as live config. Still there to read, just inert.
-- **Refreshing `references/`**: they're frozen, pruned snapshots — `rm -rf references/<name> && git clone --depth 1 <upstream-url> references/<name> && rm -rf references/<name>/.git` when you want upstream's latest.
-- **Out of scope**: no custom subagents or per-stack modular rules (`.claude/rules/`) yet — a Haiku-routed subagent for log/grep work was built and measured, but its ~20-30K token fixed overhead per invocation made it a net loss for anything short of genuinely large volume, so it was pulled rather than ship a footgun. Added back if a real, broadly-beneficial case shows up.
+- Don't edit `.claude/settings.json` permissions mid-session — breaks the prompt cache.
+- Don't run the built-in `/init` on a project with pocket-claude already in it — it'll overwrite the template's structure. Use `pocket-init` instead.
 
 </details>
 
