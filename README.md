@@ -93,17 +93,10 @@ where Claude Code looks for them.
 
 ### 3️⃣ Let Claude take it from here
 
-You've got it! Now hand Claude this prompt so it reads pocket-claude and
-internalizes it for this project from here on:
-
-> [!TIP]
-> ```text
-> I just copied pocket-claude into this project's root. Read CLAUDE.md and
-> the rest of what's in there, fill in the Commands, Architecture, and
-> Testing sections with what you actually find in this project — real
-> commands, real structure, real test setup, not guesses — and follow
-> these conventions for how we work together here from now on.
-> ```
+You've got it! `pocket-init` ships with pocket-claude and already knows how
+to fill in `CLAUDE.md` — just say **"run pocket-init"** (Claude will likely
+pick it up on its own too, once it sees the empty placeholders in a fresh
+copy).
 
 <br>
 
@@ -202,6 +195,7 @@ All 3 failures and the summary line survived intact — only the 217 noisy
 | `CLAUDE.md` | Every session | Short, no restated defaults, three project-specific placeholders |
 | `.claude/settings.json` | Every session | Small permissions allowlist, `autoCompactWindow`, hook registration |
 | `.claude/hooks/filter-test-output.sh` | On matching `Bash` calls | Condenses pytest / npm test / jest / go test / cargo test output to failures + a summary |
+| `.claude/skills/pocket-init/SKILL.md` | On invocation | Explores the project and fills in CLAUDE.md's placeholders for you |
 | `docs/token-optimization-reference.md` | On demand | Verified notes on caching, model routing, data formats, context rot |
 | `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (210MB → 9MB, relevant folders only) |
 | `references/claude-code-best-practice/` | On demand | Pruned snapshot of `shanraisshan/claude-code-best-practice` |
