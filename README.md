@@ -1,15 +1,20 @@
 <div align="center">
 
-<img src="assets/logo.jpg" width="220" alt="pocket-claude — a backpack logo labeled Pocket-Claude by harmondez, surrounded by gold coins and gears">
+<img src="assets/logo.png" width="480" alt="pocket-claude — a backpack labeled Pocket-Claude by harmondez, with a stack of gold coins beside it">
+
+<br>
 
 # 🪙 pocket-claude
 
-**A personal baseline template for Claude Code that does one job well: spend fewer tokens per session without touching answer quality.**
+### Spend fewer tokens per session. Touch nothing else.
 
-Built for Sonnet, high effort.
+**A personal baseline template for Claude Code** — built for Sonnet, high effort.
+
+<br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Made for Claude Code](https://img.shields.io/badge/made%20for-Claude%20Code-8A63D2)
+![Measured, not vibes](https://img.shields.io/badge/benchmarks-measured%2C%20not%20vibes-brightgreen)
 
 </div>
 
