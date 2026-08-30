@@ -33,6 +33,20 @@ formatting) to Haiku; keep Sonnet as the default orchestrator; reserve Opus
 for genuinely high-complexity architectural reasoning. Message Batches API
 gives a flat 50% discount for async workloads with 24h turnaround.
 
+**Caveat that matters more than the routing advice itself**: every subagent
+invocation pays ~20,000-33,000 tokens of fixed startup overhead (its own
+system prompt + tool definitions, re-paid fresh every call, no cache
+inherited from the parent) *before* any real work happens. Measured directly
+in this project: a trivial one-line-file-read subagent task cost 33,329
+tokens end to end. Routing that subagent to Haiku only cuts the cost of that
+overhead by roughly 30% — it does not remove the tokens. A documented real
+case: a task that cost 121K tokens done directly cost 513K tokens fanned out
+across 2 subagents. Net effect: a subagent (Haiku-routed or not) is a **net
+loss** for anything smaller than the overhead itself — a single grep, one
+file, a quick lookup. It only pays for itself on genuinely large volume
+(tens of thousands of tokens of raw material, or 10+ files) that would cost
+more read directly than the subagent's own startup cost.
+
 ## Context rot and compaction
 
 Retrieval precision degrades as context fills up (Anthropic's own MRCR v2

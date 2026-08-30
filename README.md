@@ -196,7 +196,7 @@ All 3 failures and the summary line survived intact — only the 217 noisy
 | `.claude/settings.json` | Every session | Small permissions allowlist, `autoCompactWindow`, hook registration |
 | `.claude/hooks/filter-test-output.sh` | On matching `Bash` calls | Condenses pytest / npm test / jest / go test / cargo test output to failures + a summary |
 | `.claude/skills/pocket-init/SKILL.md` | On invocation | Explores the project and fills in CLAUDE.md's placeholders for you |
-| `.claude/agents/pocket-scan.md` | On invocation | Haiku-routed subagent for high-volume log/grep work — returns a digest, not the raw dump |
+| `.claude/agents/pocket-scan.md` | On invocation | Haiku-routed subagent for *genuinely large* log/grep work only — small tasks are cheaper done directly, see the file |
 | `docs/token-optimization-reference.md` | On demand | Verified notes on caching, model routing, data formats, context rot |
 | `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (210MB → 9MB, relevant folders only) |
 | `references/claude-code-best-practice/` | On demand | Pruned snapshot of `shanraisshan/claude-code-best-practice` |
