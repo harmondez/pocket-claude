@@ -24,12 +24,22 @@ long list upfront.
 
 ## Commands
 
-<!-- fill per project -->
+<!-- fill per project, e.g.:
+- Dev server: `npm run dev`
+- Build: `npm run build`
+- Lint: `npm run lint`
+-->
 
 ## Architecture
 
-<!-- fill per project -->
+<!-- fill per project — 2-3 lines on what isn't obvious from reading the
+code, e.g.:
+API lives in `src/api/`, business logic in `src/domain/`. Never import
+from `api/` into `domain/`.
+-->
 
 ## Testing
 
-<!-- fill per project -->
+<!-- fill per project, e.g.:
+`pytest`. Integration tests need `docker compose up -d db` first.
+-->
