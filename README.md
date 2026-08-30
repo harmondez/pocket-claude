@@ -18,6 +18,7 @@
 ![Made for Claude Code](https://img.shields.io/badge/made%20for-Claude%20Code-8A63D2)
 ![Measured, not vibes](https://img.shields.io/badge/benchmarks-measured%2C%20not%20vibes-brightgreen)
 [![GitHub stars](https://img.shields.io/github/stars/harmondez/pocket-claude?style=social)](https://github.com/harmondez/pocket-claude/stargazers)
+[![Buy Me A Coffee](https://img.shields.io/badge/-Buy_Me_A_Coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/harmondez)
 
 <br>
 
@@ -290,5 +291,12 @@ shows up — not speculatively now.
 <div align="center">
 
 MIT licensed. Fork it, prune it, make it yours. 🍴
+
+<br><br>
+
+<img src="assets/bmc-icon.png" width="40" alt="Buy Me A Coffee cup icon"><br>
+Saved you some tokens? A coffee keeps the next one coming.
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/harmondez)
 
 </div>
