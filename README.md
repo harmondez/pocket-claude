@@ -108,7 +108,12 @@ internalizes it for this project from here on:
 
 ### 4️⃣ Make sure `jq` is installed
 
-The test-output hook needs it.
+The test-output hook needs it. [`jq`](https://jqlang.github.io/jq/) is a
+small, widely-used command-line tool for reading JSON — the hook uses it to
+parse the tiny bit of JSON Claude Code hands it before rewriting a test
+command. It's a standalone binary, not a Python package — there's no
+`requirements.txt` here on purpose, `pip install jq` gets you an unrelated
+Python module, not this CLI.
 
 > [!WARNING]
 > If `jq` is missing, the hook just fails open — no filtering, nothing
@@ -120,6 +125,15 @@ The test-output hook needs it.
 | 🪟 Windows | `winget install jqlang.jq` |
 | 🍎 macOS | `brew install jq` |
 | 🐧 Debian / Ubuntu | `apt install jq` |
+
+Or let Claude do it — paste this in:
+
+> [!TIP]
+> ```text
+> Check whether jq is installed (`jq --version`). If it's missing, detect
+> my OS and install it with the right package manager (winget on Windows,
+> brew on macOS, apt on Debian/Ubuntu), then confirm it's on PATH.
+> ```
 
 <br>
 
