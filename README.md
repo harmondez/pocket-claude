@@ -220,63 +220,14 @@ logo for this README, not part of what gets copied into a project.)
 </details>
 
 <details>
-<summary>🔒 <strong>Permissions</strong></summary>
+<summary>ℹ️ <strong>Good to know</strong></summary>
 
 <br>
 
-`.claude/settings.json` ships with a small, honest allowlist — a handful of
-read-only git inspection commands — instead of a long speculative one. Grow
-it per project with the `fewer-permission-prompts` skill as real prompts
-actually show up, rather than guessing upfront.
-
-> [!IMPORTANT]
-> Don't edit permission rules mid-session: it invalidates the prompt cache.
-
-</details>
-
-<details>
-<summary>🕶️ <strong>Why <code>.claude-example/</code> instead of <code>.claude/</code> inside references</strong></summary>
-
-<br>
-
-Both vendored repos ship their own example `.claude/` configs — demo agents,
-skills, hooks (some genuinely useful patterns, e.g. the cookbook's own
-`pre-bash.sh` hook). Every nested `.claude/` found inside `references/` was
-renamed to `.claude-example/` so it can never be picked up as live config by
-Claude Code in a project that has this template copied in. The content is
-still there to read; it's just inert.
-
-</details>
-
-<details>
-<summary>🔄 <strong>Refreshing <code>references/</code></strong></summary>
-
-<br>
-
-Both vendored repos are pruned, `.git`-stripped snapshots — a frozen copy,
-not something that auto-updates. `claude-cookbooks/` had its
-images/multimodal/capabilities/third-party/finetuning folders removed
-(192MB of content irrelevant to token optimization); `claude-code-best-practice/`
-had its screenshots/slides/videos removed. To pull either back to upstream's
-current state:
-
-```bash
-rm -rf references/<name>
-git clone --depth 1 <upstream-url> references/<name>
-rm -rf references/<name>/.git
-# re-prune if you want to keep it lean — see git log for what was removed
-```
-
-</details>
-
-<details>
-<summary>🧭 <strong>Explicitly out of scope for v1</strong></summary>
-
-<br>
-
-No custom subagents, no custom skills, no per-stack modular rules
-(`.claude/rules/`). These get added later, per project, when a real need
-shows up — not speculatively now.
+- **Permissions**: small, honest allowlist in `.claude/settings.json`, grown with the `fewer-permission-prompts` skill as real prompts show up. Don't edit it mid-session — it breaks the prompt cache.
+- **`.claude-example/` inside `references/`**: the vendored repos ship their own `.claude/` configs, renamed so Claude Code can never pick them up as live config. Still there to read, just inert.
+- **Refreshing `references/`**: they're frozen, pruned snapshots — `rm -rf references/<name> && git clone --depth 1 <upstream-url> references/<name> && rm -rf references/<name>/.git` when you want upstream's latest.
+- **Out of scope for v1**: no custom subagents, skills, or per-stack rules yet — added later, per project, when a real need shows up.
 
 </details>
 
