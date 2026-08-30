@@ -1,0 +1,21 @@
+# One substring per line, case-insensitive. If a Bash command contains
+# any of these, its output gets condensed to failure lines + a summary
+# instead of reaching Claude's context unfiltered. Add a line for any
+# test runner not covered here — no script changes needed.
+pytest
+npm test
+npm run test
+yarn test
+pnpm test
+jest
+vitest
+mocha
+go test
+cargo test
+dart test
+flutter test
+dotnet test
+swift test
+mix test
+rspec
+phpunit

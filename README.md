@@ -194,7 +194,7 @@ All 3 failures and the summary line survived intact — only the 217 noisy
 |---|---|---|
 | `CLAUDE.md` | Every session | Short, no restated defaults, three project-specific placeholders |
 | `.claude/settings.json` | Every session | Small permissions allowlist, `autoCompactWindow`, hook registration |
-| `.claude/hooks/filter-test-output.sh` | On matching `Bash` calls | Condenses pytest / npm test / jest / go test / cargo test output to failures + a summary |
+| `.claude/hooks/filter-test-output.sh` | On matching `Bash` calls | Condenses test-runner output to failures + a summary — covers most major ecosystems out of the box, extend via `test-patterns.txt` |
 | `.claude/skills/pocket-init/SKILL.md` | On invocation | Explores the project and fills in CLAUDE.md's placeholders for you |
 | `docs/token-optimization-reference.md` | On demand | Verified notes on caching, model routing, data formats, context rot |
 | `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (210MB → 9MB, relevant folders only) |

@@ -31,6 +31,9 @@ more than one):
 | `pom.xml` / `build.gradle` | Java |
 | `*.csproj` / `*.sln` | .NET |
 | `composer.json` | PHP |
+| `pubspec.yaml` | Dart / Flutter |
+| `mix.exs` | Elixir |
+| `Package.swift` | Swift |
 | `Makefile` (nothing else matched) | Generic |
 
 ## 2. Commands
@@ -49,9 +52,10 @@ example already in `CLAUDE.md`.
 ## 4. Testing
 
 Detect the test framework from its config (`jest.config.*`, `pytest.ini` /
-`[tool.pytest]`, `cargo test` built in, `go test` built in, `.rspec`, a
-JUnit/Gradle test config, a `*.csproj` test SDK reference, `phpunit.xml`)
-and the command to run it.
+`[tool.pytest]`, `cargo test` built in, `go test` built in, `dart test` /
+`flutter test` built in, `mix test` (ExUnit) built in, `swift test`
+(XCTest) built in, `.rspec`, a JUnit/Gradle test config, a `*.csproj` test
+SDK reference, `phpunit.xml`) and the command to run it.
 
 ## 5. Edit CLAUDE.md
 
