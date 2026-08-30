@@ -23,3 +23,5 @@ gradle test
 gradlew test
 mvn test
 mvnw test
+bun test
+deno test

@@ -23,7 +23,8 @@ more than one):
 
 | File | Ecosystem |
 |---|---|
-| `package.json` | Node |
+| `package.json` (also covers Bun — check for `bun.lock`/`bun.lockb`) | Node / Bun |
+| `deno.json` / `deno.jsonc` | Deno |
 | `pyproject.toml` / `requirements.txt` / `setup.py` | Python |
 | `Cargo.toml` | Rust |
 | `go.mod` | Go |
