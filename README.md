@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/logo.jpg" width="220" alt="pocket-claude — a backpack logo labeled Pocket-Claude by harmondez, surrounded by gold coins and gears">
+
 # 🪙 pocket-claude
 
 **A personal baseline template for Claude Code that does one job well: spend fewer tokens per session without touching answer quality.**
@@ -17,6 +19,20 @@ Built for Sonnet, high effort.
 > **The whole design in one sentence:** only `CLAUDE.md` ever loads
 > automatically. Everything else — reference docs, vendored cookbooks — is
 > read on demand, one file at a time, never the whole directory.
+
+<br>
+
+---
+
+## 🤔 Why this exists
+
+Claude Code re-reads `CLAUDE.md` and re-evaluates your permission/hook setup
+*every single session* — so every wasted line in there is a cost you pay
+forever, not once. Most of that waste is avoidable: restating behavior the
+harness already does by default, letting noisy test output flood the
+context, guessing permissions instead of earning them. pocket-claude is the
+small, boring fix for all three, built and verified (not guessed) file by
+file — the measured proof is a few sections down.
 
 <br>
 
@@ -105,7 +121,8 @@ The test-output hook needs it.
 
 Both vendored snapshots keep their original `LICENSE` file — they're
 third-party code under their own upstream licenses (both MIT), separate from
-the rest of this repo.
+the rest of this repo. (`assets/` isn't in that table on purpose — it's the
+logo for this README, not part of what gets copied into a project.)
 
 > [!NOTE]
 > **"On demand" means:** don't read the directory, read the one file you
@@ -199,6 +216,15 @@ shows up — not speculatively now.
 <br>
 
 ---
+
+## 🤝 Contributing
+
+Found a claim in `docs/token-optimization-reference.md` that's gone stale,
+a hook that misbehaves on your shell, or a pattern worth adding? Issues and
+PRs are welcome — just keep the core rule intact: nothing goes in that isn't
+verified, and nothing loads unless something actually needs it.
+
+<br>
 
 <div align="center">
 
