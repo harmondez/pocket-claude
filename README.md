@@ -196,6 +196,7 @@ All 3 failures and the summary line survived intact — only the 217 noisy
 | `.claude/settings.json` | Every session | Small permissions allowlist, `autoCompactWindow`, hook registration |
 | `.claude/hooks/filter-test-output.sh` | On matching `Bash` calls | Condenses pytest / npm test / jest / go test / cargo test output to failures + a summary |
 | `.claude/skills/pocket-init/SKILL.md` | On invocation | Explores the project and fills in CLAUDE.md's placeholders for you |
+| `.claude/agents/pocket-scan.md` | On invocation | Haiku-routed subagent for high-volume log/grep work — returns a digest, not the raw dump |
 | `docs/token-optimization-reference.md` | On demand | Verified notes on caching, model routing, data formats, context rot |
 | `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (210MB → 9MB, relevant folders only) |
 | `references/claude-code-best-practice/` | On demand | Pruned snapshot of `shanraisshan/claude-code-best-practice` |
@@ -221,7 +222,7 @@ logo for this README, not part of what gets copied into a project.)
 - **Permissions**: small, honest allowlist in `.claude/settings.json`, grown with the `fewer-permission-prompts` skill as real prompts show up. Don't edit it mid-session — it breaks the prompt cache.
 - **`.claude-example/` inside `references/`**: the vendored repos ship their own `.claude/` configs, renamed so Claude Code can never pick them up as live config. Still there to read, just inert.
 - **Refreshing `references/`**: they're frozen, pruned snapshots — `rm -rf references/<name> && git clone --depth 1 <upstream-url> references/<name> && rm -rf references/<name>/.git` when you want upstream's latest.
-- **Out of scope for v1**: no custom subagents, skills, or per-stack rules yet — added later, per project, when a real need shows up.
+- **Out of scope**: no per-stack modular rules (`.claude/rules/`) yet — added later, per project, when a real need shows up.
 
 </details>
 
