@@ -1,12 +1,20 @@
 ---
 name: pocket-init
 description: Explores this project and fills in CLAUDE.md's Commands, Architecture, and Testing placeholders with what it actually finds (real build/test/lint commands, real structure, real test setup) instead of leaving them empty. Use right after pocket-claude is copied into a new project, or whenever asked to fill in / update CLAUDE.md.
+allowed-tools: Read Grep Glob Edit
 ---
 
 Fill in the three `<!-- fill per project -->` placeholders in `CLAUDE.md`
 (Commands, Architecture, Testing) with what this specific project actually
 has — never guess, never invent a command that isn't confirmed in a real
 file.
+
+This is not the same job as the built-in `/init` command: `/init` writes a
+generic CLAUDE.md from scratch and doesn't know pocket-claude's structure
+exists. Never run `/init` on a project that already has pocket-claude's
+CLAUDE.md — it can overwrite or duplicate the fixed sections. This skill
+only ever touches the three placeholder sections and leaves the rest of the
+file exactly as pocket-claude shipped it.
 
 ## 1. Detect ecosystem(s)
 
