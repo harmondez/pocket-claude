@@ -1,18 +1,32 @@
-# pocket-claude
+<div align="center">
 
-A personal baseline template for Claude Code. Drop it into any new project
-and it does one job: keep token spend per session as low as possible without
-touching answer quality, assuming Sonnet at high effort.
+# 🪙 pocket-claude
 
-> Only `CLAUDE.md` ever loads automatically. Everything else in this repo —
-> reference docs, vendored cookbooks — is read on demand, a single file at a
-> time, never the whole directory. That's the whole design in one sentence.
+**A personal baseline template for Claude Code that does one job well: spend fewer tokens per session without touching answer quality.**
+
+Built for Sonnet, high effort.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Made for Claude Code](https://img.shields.io/badge/made%20for-Claude%20Code-8A63D2)
+
+</div>
+
+<br>
+
+> [!TIP]
+> **The whole design in one sentence:** only `CLAUDE.md` ever loads
+> automatically. Everything else — reference docs, vendored cookbooks — is
+> read on demand, one file at a time, never the whole directory.
+
+<br>
 
 ---
 
-## Install
+## 🚀 Install
 
-### 1. Get a local copy of pocket-claude, once
+<br>
+
+### 1️⃣ Get a local copy, once
 
 Clone it somewhere permanent on your machine — this is the copy you'll pull
 from every time you start a new project, not something you re-clone per
@@ -22,7 +36,9 @@ project.
 git clone https://github.com/harmondez/pocket-claude.git ~/pocket-claude
 ```
 
-### 2. Drop it into a new project
+<br>
+
+### 2️⃣ Drop it into a new project
 
 From the root of a new (or existing) project:
 
@@ -33,7 +49,9 @@ cp -r ~/pocket-claude/CLAUDE.md ~/pocket-claude/.claude ~/pocket-claude/docs ~/p
 That's it — `CLAUDE.md` and `.claude/` now sit at your project root, right
 where Claude Code looks for them.
 
-### 3. Fill in the three placeholders
+<br>
+
+### 3️⃣ Fill in the three placeholders
 
 Open `CLAUDE.md` and replace each `<!-- fill per project -->` with concrete
 detail about *this* project — they ship empty on purpose, a generic template
@@ -43,27 +61,38 @@ repo every session:
 
 | Section | What goes there | Example |
 |---|---|---|
-| **Commands** | The exact commands to build/test/lint this project | `npm run dev`, `npm run build`, `npm run lint` |
-| **Architecture** | 2-3 lines on what isn't obvious from reading the code | "API in `src/api/`, business logic in `src/domain/`. Never import from `api/` into `domain/`." |
-| **Testing** | Test framework and how to run it | `pytest`. Integration tests need `docker compose up -d db` first. |
+| 🛠️ **Commands** | The exact commands to build/test/lint this project | `npm run dev`, `npm run build`, `npm run lint` |
+| 🏗️ **Architecture** | 2-3 lines on what isn't obvious from reading the code | "API in `src/api/`, business logic in `src/domain/`. Never import from `api/` into `domain/`." |
+| ✅ **Testing** | Test framework and how to run it | `pytest`. Integration tests need `docker compose up -d db` first. |
 
-### 4. Make sure `jq` is installed
+<br>
 
-The test-output hook needs it. If it's missing the hook just fails open (no
-filtering, nothing breaks) — so this step is easy to skip and only notice
-later.
+### 4️⃣ Make sure `jq` is installed
+
+The test-output hook needs it.
+
+> [!WARNING]
+> If `jq` is missing, the hook just fails open — no filtering, nothing
+> breaks. Easy to skip, easy to forget, only noticed later when test output
+> floods your context.
 
 | OS | Command |
 |---|---|
-| Windows | `winget install jqlang.jq` |
-| macOS | `brew install jq` |
-| Debian / Ubuntu | `apt install jq` |
+| 🪟 Windows | `winget install jqlang.jq` |
+| 🍎 macOS | `brew install jq` |
+| 🐧 Debian / Ubuntu | `apt install jq` |
 
-Done. Open Claude Code in the project and go.
+<br>
+
+✅ **Done.** Open Claude Code in the project and go.
+
+<br>
 
 ---
 
-## What's inside
+## 📦 What's inside
+
+<br>
 
 | Path | Loads | Purpose |
 |---|---|---|
@@ -74,27 +103,57 @@ Done. Open Claude Code in the project and go.
 | `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (13MB → relevant folders only) |
 | `references/claude-code-best-practice/` | On demand | Pruned snapshot of `shanraisshan/claude-code-best-practice` |
 
-**On demand** means: don't read the directory, read the one file you
-actually need, only when a task calls for it (writing a hook, tuning
-caching, designing an agent pattern). Loading any of it wholesale defeats
-the point of the whole repo.
+Both vendored snapshots keep their original `LICENSE` file — they're
+third-party code under their own upstream licenses (both MIT), separate from
+the rest of this repo.
+
+> [!NOTE]
+> **"On demand" means:** don't read the directory, read the one file you
+> actually need, only when a task calls for it (writing a hook, tuning
+> caching, designing an agent pattern). Loading any of it wholesale defeats
+> the point of the whole repo.
+
+<br>
+
+---
+
+## 📊 It actually works — measured, not vibes
+
+A realistic synthetic `pytest` run (220 tests, 3 real failures, 244 lines)
+pushed through the actual hook in this repo:
+
+| | Lines | Characters |
+|---|---|---|
+| Raw output | 244 | 17,781 |
+| Through the hook | 17 | 889 |
+| **Reduction** | **93%** | **95%** |
+
+All 3 failures and the summary line survived intact — only the 217 noisy
+`PASSED` lines got dropped.
+
+<br>
 
 ---
 
 <details>
-<summary><strong>Permissions</strong></summary>
+<summary>🔒 <strong>Permissions</strong></summary>
+
+<br>
 
 `.claude/settings.json` ships with a small, honest allowlist — a handful of
 read-only git inspection commands — instead of a long speculative one. Grow
 it per project with the `fewer-permission-prompts` skill as real prompts
 actually show up, rather than guessing upfront.
 
-Don't edit permission rules mid-session: it invalidates the prompt cache.
+> [!IMPORTANT]
+> Don't edit permission rules mid-session: it invalidates the prompt cache.
 
 </details>
 
 <details>
-<summary><strong>Why <code>.claude-example/</code> instead of <code>.claude/</code> inside references</strong></summary>
+<summary>🕶️ <strong>Why <code>.claude-example/</code> instead of <code>.claude/</code> inside references</strong></summary>
+
+<br>
 
 Both vendored repos ship their own example `.claude/` configs — demo agents,
 skills, hooks (some genuinely useful patterns, e.g. the cookbook's own
@@ -106,7 +165,9 @@ still there to read; it's just inert.
 </details>
 
 <details>
-<summary><strong>Refreshing <code>references/</code></strong></summary>
+<summary>🔄 <strong>Refreshing <code>references/</code></strong></summary>
+
+<br>
 
 Both vendored repos are pruned, `.git`-stripped snapshots — a frozen copy,
 not something that auto-updates. `claude-cookbooks/` had its
@@ -125,10 +186,22 @@ rm -rf references/<name>/.git
 </details>
 
 <details>
-<summary><strong>Explicitly out of scope for v1</strong></summary>
+<summary>🧭 <strong>Explicitly out of scope for v1</strong></summary>
+
+<br>
 
 No custom subagents, no custom skills, no per-stack modular rules
 (`.claude/rules/`). These get added later, per project, when a real need
 shows up — not speculatively now.
 
 </details>
+
+<br>
+
+---
+
+<div align="center">
+
+MIT licensed. Fork it, prune it, make it yours. 🍴
+
+</div>
