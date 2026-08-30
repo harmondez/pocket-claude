@@ -23,7 +23,7 @@
 
 <a href="#why">Why</a> •
 <a href="#install">Install</a> •
-<a href="#whats-inside">What's inside</a> •
+<a href="#try-it">Try it</a> •
 <a href="#proof">Proof</a> •
 <a href="#more-details">More details</a> •
 <a href="#contributing">Contributing</a>
@@ -108,7 +108,7 @@ internalizes it for this project from here on:
 
 ### 4️⃣ Make sure `jq` is installed
 
-The test-output hook needs it. [`jq`](https://jqlang.github.io/jq/) is a
+The test-output hook needs it. [`jq`](https://jqlang.org/) is a
 small, widely-used command-line tool for reading JSON — the hook uses it to
 parse the tiny bit of JSON Claude Code hands it before rewriting a test
 command.
@@ -143,31 +143,19 @@ Or let Claude do it — paste this in:
 
 ---
 
-<a id="whats-inside"></a>
+<a id="try-it"></a>
 
-## 📦 What's inside
+## 🔥 Get ready to spend fewer tokens
 
-<br>
+You're set up — now go put it to work. Copy it into a real project, watch
+`CLAUDE.md` stay lean instead of creeping past a thousand lines, and see
+the test-output hook actually cut the noise before it ever hits your
+context.
 
-| Path | Loads | Purpose |
-|---|---|---|
-| `CLAUDE.md` | Every session | Short, no restated defaults, three project-specific placeholders |
-| `.claude/settings.json` | Every session | Small permissions allowlist, `autoCompactWindow`, hook registration |
-| `.claude/hooks/filter-test-output.sh` | On matching `Bash` calls | Condenses pytest / npm test / jest / go test / cargo test output to failures + a summary |
-| `docs/token-optimization-reference.md` | On demand | Verified notes on caching, model routing, data formats, context rot |
-| `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (13MB → relevant folders only) |
-| `references/claude-code-best-practice/` | On demand | Pruned snapshot of `shanraisshan/claude-code-best-practice` |
-
-Both vendored snapshots keep their original `LICENSE` file — they're
-third-party code under their own upstream licenses (both MIT), separate from
-the rest of this repo. (`assets/` isn't in that table on purpose — it's the
-logo for this README, not part of what gets copied into a project.)
-
-> [!NOTE]
-> **"On demand" means:** don't read the directory, read the one file you
-> actually need, only when a task calls for it (writing a hook, tuning
-> caching, designing an agent pattern). Loading any of it wholesale defeats
-> the point of the whole repo.
+**Then tell us how it went.** Worked great? Found a bug, a hook that
+misbehaves on your shell, or a claim in the docs that's gone stale?
+[Open an issue](https://github.com/harmondez/pocket-claude/issues) — that's
+exactly what this repo runs on.
 
 <div align="right"><a href="#top">⬆ back to top</a></div>
 
@@ -202,6 +190,33 @@ All 3 failures and the summary line survived intact — only the 217 noisy
 ## 📚 More details
 
 <br>
+
+<details>
+<summary>📦 <strong>What's inside</strong></summary>
+
+<br>
+
+| Path | Loads | Purpose |
+|---|---|---|
+| `CLAUDE.md` | Every session | Short, no restated defaults, three project-specific placeholders |
+| `.claude/settings.json` | Every session | Small permissions allowlist, `autoCompactWindow`, hook registration |
+| `.claude/hooks/filter-test-output.sh` | On matching `Bash` calls | Condenses pytest / npm test / jest / go test / cargo test output to failures + a summary |
+| `docs/token-optimization-reference.md` | On demand | Verified notes on caching, model routing, data formats, context rot |
+| `references/claude-cookbooks/` | On demand | Pruned snapshot of `anthropics/claude-cookbooks` (210MB → 9MB, relevant folders only) |
+| `references/claude-code-best-practice/` | On demand | Pruned snapshot of `shanraisshan/claude-code-best-practice` |
+
+Both vendored snapshots keep their original `LICENSE` file — they're
+third-party code under their own upstream licenses (both MIT), separate from
+the rest of this repo. (`assets/` isn't in that table on purpose — it's the
+logo for this README, not part of what gets copied into a project.)
+
+> [!NOTE]
+> **"On demand" means:** don't read the directory, read the one file you
+> actually need, only when a task calls for it (writing a hook, tuning
+> caching, designing an agent pattern). Loading any of it wholesale defeats
+> the point of the whole repo.
+
+</details>
 
 <details>
 <summary>🔒 <strong>Permissions</strong></summary>
@@ -272,19 +287,8 @@ shows up — not speculatively now.
 
 <a id="contributing"></a>
 
-## 🤝 Contributing
-
-Found a claim in `docs/token-optimization-reference.md` that's gone stale,
-a hook that misbehaves on your shell, or a pattern worth adding? Issues and
-PRs are welcome — just keep the core rule intact: nothing goes in that isn't
-verified, and nothing loads unless something actually needs it.
-
-<br>
-
 <div align="center">
 
 MIT licensed. Fork it, prune it, make it yours. 🍴
-
-<sub>Built the slow, verified way — every claim in this repo has been checked, not assumed.</sub>
 
 </div>
