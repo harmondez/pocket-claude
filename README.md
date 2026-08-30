@@ -81,6 +81,20 @@ repo every session:
 | 🏗️ **Architecture** | 2-3 lines on what isn't obvious from reading the code | "API in `src/api/`, business logic in `src/domain/`. Never import from `api/` into `domain/`." |
 | ✅ **Testing** | Test framework and how to run it | `pytest`. Integration tests need `docker compose up -d db` first. |
 
+> [!TIP]
+> **You don't have to write this by hand.** Claude Code can fill it in for
+> you by actually exploring the project instead of guessing. Paste this in:
+>
+> ```text
+> I just copied pocket-claude into this project's root. Explore the repo
+> and fill in the Commands, Architecture, and Testing sections of
+> CLAUDE.md with what you actually find — real commands from
+> package.json/pyproject.toml/Makefile/Cargo.toml (whichever applies),
+> a short note on structure that isn't obvious from the file tree, and
+> the real test framework/setup. Keep each section as short as the
+> examples already in CLAUDE.md — concrete facts, not a tutorial.
+> ```
+
 <br>
 
 ### 4️⃣ Make sure `jq` is installed
