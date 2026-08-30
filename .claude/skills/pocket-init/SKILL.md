@@ -28,7 +28,7 @@ more than one):
 | `Cargo.toml` | Rust |
 | `go.mod` | Go |
 | `Gemfile` / `Rakefile` | Ruby |
-| `pom.xml` / `build.gradle` | Java |
+| `pom.xml` / `build.gradle` / `build.gradle.kts` | Java / Kotlin (JVM) |
 | `*.csproj` / `*.sln` | .NET |
 | `composer.json` | PHP |
 | `pubspec.yaml` | Dart / Flutter |
@@ -47,7 +47,10 @@ tasks. Only list a command you found in an actual file.
 
 Glob the top one or two directory levels (don't read full file contents) and
 note 2-3 lines on what isn't obvious from the tree — same length as the
-example already in `CLAUDE.md`.
+example already in `CLAUDE.md`. If there's a database dependency (a
+`docker-compose.yml` with a db service, a `migrations/` or `prisma/`
+folder, a `.env.example` with a `DATABASE_URL`), say so in one line — it's
+exactly the kind of environment quirk Claude can't guess by reading code.
 
 ## 4. Testing
 

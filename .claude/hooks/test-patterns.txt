@@ -19,3 +19,7 @@ swift test
 mix test
 rspec
 phpunit
+gradle test
+gradlew test
+mvn test
+mvnw test
