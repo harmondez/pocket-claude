@@ -1,3 +1,5 @@
+<a id="top"></a>
+
 <div align="center">
 
 <img src="assets/logo.png" width="480" alt="pocket-claude — a backpack labeled Pocket-Claude by harmondez, with a stack of gold coins beside it">
@@ -15,6 +17,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Made for Claude Code](https://img.shields.io/badge/made%20for-Claude%20Code-8A63D2)
 ![Measured, not vibes](https://img.shields.io/badge/benchmarks-measured%2C%20not%20vibes-brightgreen)
+[![GitHub stars](https://img.shields.io/github/stars/harmondez/pocket-claude?style=social)](https://github.com/harmondez/pocket-claude/stargazers)
+
+<br>
+
+<a href="#why">Why</a> •
+<a href="#install">Install</a> •
+<a href="#whats-inside">What's inside</a> •
+<a href="#proof">Proof</a> •
+<a href="#more-details">More details</a> •
+<a href="#contributing">Contributing</a>
 
 </div>
 
@@ -29,6 +41,8 @@
 
 ---
 
+<a id="why"></a>
+
 ## 🤔 Why this exists
 
 Claude Code re-reads `CLAUDE.md` and re-evaluates your permission/hook setup
@@ -39,9 +53,13 @@ context, guessing permissions instead of earning them. pocket-claude is the
 small, boring fix for all three, built and verified (not guessed) file by
 file — the measured proof is a few sections down.
 
+<div align="right"><a href="#top">⬆ back to top</a></div>
+
 <br>
 
 ---
+
+<a id="install"></a>
 
 ## 🚀 Install
 
@@ -107,9 +125,13 @@ The test-output hook needs it.
 
 ✅ **Done.** Open Claude Code in the project and go.
 
+<div align="right"><a href="#top">⬆ back to top</a></div>
+
 <br>
 
 ---
+
+<a id="whats-inside"></a>
 
 ## 📦 What's inside
 
@@ -135,9 +157,13 @@ logo for this README, not part of what gets copied into a project.)
 > caching, designing an agent pattern). Loading any of it wholesale defeats
 > the point of the whole repo.
 
+<div align="right"><a href="#top">⬆ back to top</a></div>
+
 <br>
 
 ---
+
+<a id="proof"></a>
 
 ## 📊 It actually works — measured, not vibes
 
@@ -153,9 +179,17 @@ pushed through the actual hook in this repo:
 All 3 failures and the summary line survived intact — only the 217 noisy
 `PASSED` lines got dropped.
 
+<div align="right"><a href="#top">⬆ back to top</a></div>
+
 <br>
 
 ---
+
+<a id="more-details"></a>
+
+## 📚 More details
+
+<br>
 
 <details>
 <summary>🔒 <strong>Permissions</strong></summary>
@@ -218,9 +252,13 @@ shows up — not speculatively now.
 
 </details>
 
+<div align="right"><a href="#top">⬆ back to top</a></div>
+
 <br>
 
 ---
+
+<a id="contributing"></a>
 
 ## 🤝 Contributing
 
@@ -234,5 +272,7 @@ verified, and nothing loads unless something actually needs it.
 <div align="center">
 
 MIT licensed. Fork it, prune it, make it yours. 🍴
+
+<sub>Built the slow, verified way — every claim in this repo has been checked, not assumed.</sub>
 
 </div>
