@@ -35,9 +35,17 @@ where Claude Code looks for them.
 
 ### 3. Fill in the three placeholders
 
-Open `CLAUDE.md` and fill in `Commands`, `Architecture`, and `Testing` for
-*this* project. They ship empty on purpose — a generic template shouldn't
-guess at project-specific detail.
+Open `CLAUDE.md` and replace each `<!-- fill per project -->` with concrete
+detail about *this* project — they ship empty on purpose, a generic template
+shouldn't guess. These are the three sections Anthropic's own best practices
+recommend having, so Claude doesn't have to rediscover them by exploring the
+repo every session:
+
+| Section | What goes there | Example |
+|---|---|---|
+| **Commands** | The exact commands to build/test/lint this project | `npm run dev`, `npm run build`, `npm run lint` |
+| **Architecture** | 2-3 lines on what isn't obvious from reading the code | "API in `src/api/`, business logic in `src/domain/`. Never import from `api/` into `domain/`." |
+| **Testing** | Test framework and how to run it | `pytest`. Integration tests need `docker compose up -d db` first. |
 
 ### 4. Make sure `jq` is installed
 
