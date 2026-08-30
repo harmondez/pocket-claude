@@ -111,14 +111,12 @@ internalizes it for this project from here on:
 The test-output hook needs it. [`jq`](https://jqlang.github.io/jq/) is a
 small, widely-used command-line tool for reading JSON — the hook uses it to
 parse the tiny bit of JSON Claude Code hands it before rewriting a test
-command. It's a standalone binary, not a Python package — there's no
-`requirements.txt` here on purpose, `pip install jq` gets you an unrelated
-Python module, not this CLI.
+command.
 
 > [!WARNING]
-> If `jq` is missing, the hook just fails open — no filtering, nothing
-> breaks. Easy to skip, easy to forget, only noticed later when test output
-> floods your context.
+> Without `jq`, the hook silently does nothing — your commands still run
+> fine, they just won't be filtered. Nothing breaks, but you also won't get
+> the token savings until you install it.
 
 | OS | Command |
 |---|---|
